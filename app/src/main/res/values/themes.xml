@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NeBada" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.NeBada" parent="Base.Theme.NeBada" />
+    
+    <!-- 인트로 화면용 테마 (액션바 없음) -->
+    <style name="Theme.NeBada.NoActionBar" parent="Base.Theme.NeBada">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    
+    <!-- 앱바 오버레이 테마 -->
+    <style name="Theme.NeBada.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    
+    <!-- 팝업 오버레이 테마 -->
+    <style name="Theme.NeBada.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

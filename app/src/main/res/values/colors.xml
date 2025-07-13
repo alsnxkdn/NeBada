@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#FF6200EE</color>
+    <color name="primary_variant">#FF3700B3</color>
+    <color name="secondary_color">#FF03DAC5</color>
+    <color name="secondary_variant">#FF018786</color>
+    <color name="background_color">#FF121212</color>
+    <color name="surface_color">#FF1E1E1E</color>
+    <color name="error_color">#FFCF6679</color>
+    
+    <!-- 인트로 화면용 색상들 -->
+    <color name="warning_background">#FFFFF3CD</color>
+    <color name="card_background">#4D2196F3</color>
+    <color name="menu_item_bg">#4D1976D2</color>
+    <color name="emergency_red">#FFD32F2F</color>
+</resources>
