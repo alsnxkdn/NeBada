@@ -12,20 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NeBada"
         tools:targetApi="31">
+
         <activity
             android:name=".IntroActivity"
             android:exported="true"
             android:theme="@style/Theme.NeBada.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.NeBada" />
+
+        <activity
+            android:name=".CatchManagementActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NeBada"
+            android:parentActivityName=".IntroActivity" />
+
     </application>
 
 </manifest>
