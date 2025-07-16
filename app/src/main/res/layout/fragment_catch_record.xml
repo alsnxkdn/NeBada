@@ -10,276 +10,209 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- 전체 통계 카드 -->
+        <!-- 기본 정보 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📊 전체 통계"
-                    android:textSize="20sp"
+                    android:text="📋 기본 정보"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="16dp" />
 
-                <!-- 통계 그리드 -->
-                <GridLayout
+                <!-- 어종 선택 -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:rowCount="4">
+                    android:layout_marginBottom="12dp">
 
-                    <!-- 총 어획 횟수 -->
-                    <LinearLayout
+                    <Spinner
+                        android:id="@+id/spinner_fish_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 무게와 수량 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:suffixText="kg">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_weight"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="총 어획 횟수"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
+                            android:hint="무게"
+                            android:inputType="numberDecimal" />
 
-                        <TextView
-                            android:id="@+id/tv_total_records"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0회"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    </LinearLayout>
-
-                    <!-- 총 무게 -->
-                    <LinearLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:suffixText="마리">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_quantity"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="총 무게"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
+                            android:hint="수량"
+                            android:inputType="number" />
 
-                        <TextView
-                            android:id="@+id/tv_total_weight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0kg"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    </LinearLayout>
+                </LinearLayout>
 
-                    <!-- 총 수량 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
+                <!-- 가격 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:suffixText="원/kg">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_price"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
+                        android:hint="판매 가격"
+                        android:inputType="numberDecimal" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="총 수량"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_total_quantity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0마리"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                    <!-- 총 가치 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="총 가치"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_total_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0원"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                    <!-- 평균 무게 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="평균 무게"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_average_weight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0kg"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                    <!-- 평균 가격 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="평균 가격"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_average_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0원/kg"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                    <!-- 주요 어종 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="주요 어종"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_most_caught_fish"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="없음"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                    <!-- 어종 수 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="어종 수"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_fish_type_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0종"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_color" />
-
-                    </LinearLayout>
-
-                </GridLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 이번 달 통계 -->
+        <!-- 위치 정보 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tv_current_month"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📅 이번 달 통계"
+                    android:text="📍 위치 정보"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- 어획 위치 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="어획 위치 (예: 부산 남구 앞바다)"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- GPS 좌표 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_latitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="위도"
+                            android:inputType="numberSigned|numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_longitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="경도"
+                            android:inputType="numberSigned|numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <!-- 현재 위치 가져오기 버튼 -->
+                <Button
+                    android:id="@+id/btn_get_current_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 현재 위치 가져오기"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 날짜/시간 섹션 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🕐 어획 시간"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
@@ -287,29 +220,41 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        android:layout_marginEnd="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="어획 횟수"
+                            android:text="날짜"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/tv_selected_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/date_time_selector_bg"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="12dp"
+                            android:text="2024-01-01"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btn_select_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:text="날짜 선택"
                             android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_monthly_records"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0회"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
                     </LinearLayout>
 
@@ -318,46 +263,33 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        android:layout_marginStart="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="총 무게"
+                            android:text="시간"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/tv_selected_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/date_time_selector_bg"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="12dp"
+                            android:text="00:00"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btn_select_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:text="시간 선택"
                             android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_monthly_weight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0kg"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="총 가치"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray" />
-
-                        <TextView
-                            android:id="@+id/tv_monthly_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0원"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
                     </LinearLayout>
 
@@ -367,69 +299,176 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 어종별 통계 -->
+        <!-- 환경 정보 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🐟 어종별 통계 (상위 5개)"
+                    android:text="🌊 환경 정보"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
 
+                <!-- 날씨와 수온 -->
                 <LinearLayout
-                    android:id="@+id/layout_fish_type_stats"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="날씨 상태"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:suffixText="°C">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_water_temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="수온"
+                            android:inputType="numberSigned|numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <!-- 수심과 어법 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:suffixText="m">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_depth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="수심"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp">
+
+                        <Spinner
+                            android:id="@+id/spinner_method"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 최근 활동 -->
+        <!-- 메모 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⏰ 최근 활동"
+                    android:text="📝 기타 메모"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
 
-                <LinearLayout
-                    android:id="@+id/layout_recent_activity"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:hint="특이사항, 참고사항 등을 입력하세요"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <!-- 저장/취소 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="취소"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="저장하기" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

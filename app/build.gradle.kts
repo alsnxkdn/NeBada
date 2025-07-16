@@ -46,6 +46,17 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Gson for JSON serialization
+    implementation("com.google.code.gson:gson:2.10.1")
+    // SwipeRefreshLayout 추가
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    // JSON 처리 및 네트워킹
+    implementation(libs.gson)
+    implementation(libs.okhttp)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

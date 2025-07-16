@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 인터넷 권한 추가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,6 +37,19 @@
             android:exported="false"
             android:theme="@style/Theme.NeBada"
             android:parentActivityName=".IntroActivity" />
+
+        <!-- 시장정보 관련 Activity들 -->
+        <activity
+            android:name=".MarketInfoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NeBada"
+            android:parentActivityName=".IntroActivity" />
+
+        <activity
+            android:name=".MarketDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NeBada"
+            android:parentActivityName=".MarketInfoActivity" />
 
     </application>
 

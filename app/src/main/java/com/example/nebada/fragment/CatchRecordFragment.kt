@@ -69,12 +69,12 @@ class CatchRecordFragment : Fragment() {
     }
 
     private fun setupSpinners() {
-        // 어종 스피너
+        // 어종 스피너 - 수정된 ID 사용
         val fishTypeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, fishTypes)
         fishTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerFishType.adapter = fishTypeAdapter
 
-        // 어법 스피너
+        // 어법 스피너 - 수정된 ID 사용
         val methodAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, fishingMethods)
         methodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerMethod.adapter = methodAdapter
@@ -164,9 +164,13 @@ class CatchRecordFragment : Fragment() {
             return
         }
 
+        // 스피너에서 선택된 값 가져오기 (수정된 부분)
+        val selectedFishType = fishTypes[binding.spinnerFishType.selectedItemPosition]
+        val selectedMethod = fishingMethods[binding.spinnerMethod.selectedItemPosition]
+
         val record = CatchRecord(
             id = editingRecordId ?: "",
-            fishType = fishTypes[binding.spinnerFishType.selectedItemPosition],
+            fishType = selectedFishType,
             weight = binding.etWeight.text.toString().toDoubleOrNull() ?: 0.0,
             quantity = binding.etQuantity.text.toString().toIntOrNull() ?: 0,
             location = binding.etLocation.text.toString(),
@@ -176,7 +180,7 @@ class CatchRecordFragment : Fragment() {
             weather = binding.etWeather.text.toString(),
             waterTemp = binding.etWaterTemp.text.toString().toDoubleOrNull() ?: 0.0,
             depth = binding.etDepth.text.toString().toDoubleOrNull() ?: 0.0,
-            method = fishingMethods[binding.spinnerMethod.selectedItemPosition],
+            method = selectedMethod,
             notes = binding.etNotes.text.toString(),
             price = binding.etPrice.text.toString().toDoubleOrNull() ?: 0.0
         )
@@ -236,7 +240,7 @@ class CatchRecordFragment : Fragment() {
             selectedDate = it.date
             updateDateTimeDisplay()
 
-            // 스피너 선택
+            // 스피너 선택 (수정된 부분)
             val fishTypeIndex = fishTypes.indexOf(it.fishType)
             if (fishTypeIndex >= 0) {
                 binding.spinnerFishType.setSelection(fishTypeIndex)
