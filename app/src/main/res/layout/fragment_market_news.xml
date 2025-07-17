@@ -10,6 +10,42 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- GPS 상태 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:background="@color/primary_color"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="위치 기반 지역 뉴스"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자동 선택됨"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:background="@drawable/badge_bg"
+                android:padding="4dp" />
+
+        </LinearLayout>
+
         <!-- 필터 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -71,7 +107,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="지역"
+                            android:text="지역 📍"
                             android:textSize="12sp"
                             android:layout_marginBottom="4dp" />
 
@@ -99,6 +135,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- app/src/main/res/layout/fragment_market_news.xml 계속 -->
         <!-- 뉴스 목록 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

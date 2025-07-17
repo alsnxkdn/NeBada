@@ -359,7 +359,7 @@
                         android:id="@+id/tv_seasonal_trend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="가을~겨울철이 제철로 가격이 하락하는 추세입니다."
+                        android:text="겨울철이 제철로 가격이 하락하는 추세입니다."
                         android:textSize="14sp"
                         android:lineSpacingExtra="2dp" />
 

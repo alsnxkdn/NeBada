@@ -10,6 +10,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- 음성 입력 상태 표시 -->
+        <TextView
+            android:id="@+id/tv_voice_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎤 음성을 듣고 있습니다..."
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="#2196F3"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
+        <!-- 전체 음성 입력 버튼 -->
+        <Button
+            android:id="@+id/btn_voice_input_all"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="🎤 음성으로 전체 입력"
+            android:textSize="16sp"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="20dp" />
+
         <!-- 기본 정보 섹션 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -33,19 +59,122 @@
                     android:layout_marginBottom="16dp" />
 
                 <!-- 어종 선택 -->
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_marginBottom="12dp">
 
-                    <Spinner
-                        android:id="@+id/spinner_fish_type"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="어종"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_fish_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_voice_fish_type"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="🎤"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                </LinearLayout>
 
                 <!-- 무게와 수량 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_marginEnd="8dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:suffixText="kg">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="무게"
+                                android:inputType="numberDecimal" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/btn_voice_weight"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:text="🎤"
+                            android:textSize="10sp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="8dp"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="8dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:suffixText="마리">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="수량"
+                                android:inputType="number" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/btn_voice_quantity"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:text="🎤"
+                            android:textSize="10sp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="8dp"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 가격 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,51 +185,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        app:suffixText="kg">
+                        app:suffixText="원/kg">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_weight"
+                            android:id="@+id/et_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="무게"
+                            android:hint="판매 가격"
                             android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                    <Button
+                        android:id="@+id/btn_voice_price"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="🎤"
+                        android:textSize="12sp"
                         android:layout_marginStart="8dp"
-                        app:suffixText="마리">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="수량"
-                            android:inputType="number" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
                 </LinearLayout>
-
-                <!-- 가격 -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:suffixText="원/kg">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_price"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="판매 가격"
-                        android:inputType="numberDecimal" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -128,20 +234,52 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
 
-                <!-- 어획 위치 -->
-                <com.google.android.material.textfield.TextInputLayout
+                <!-- GPS 상태 표시 -->
+                <TextView
+                    android:id="@+id/tv_location_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="📍 GPS로 위치 정보를 가져오는 중..."
+                    android:textSize="14sp"
+                    android:textColor="#2196F3"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="#E3F2FD"
+                    android:layout_marginBottom="12dp"
+                    android:visibility="gone" />
+
+                <!-- 어획 위치 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_marginBottom="12dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_location"
-                        android:layout_width="match_parent"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="어획 위치 (예: 부산 남구 앞바다)"
-                        android:inputType="text" />
+                        android:layout_weight="1">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="어획 위치 (자동 입력됨)"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btn_voice_location"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="🎤"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                </LinearLayout>
 
                 <!-- GPS 좌표 -->
                 <LinearLayout
@@ -160,7 +298,7 @@
                             android:id="@+id/et_latitude"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="위도"
+                            android:hint="위도 (자동 입력됨)"
                             android:inputType="numberSigned|numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -175,19 +313,19 @@
                             android:id="@+id/et_longitude"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="경도"
+                            android:hint="경도 (자동 입력됨)"
                             android:inputType="numberSigned|numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
-                <!-- 현재 위치 가져오기 버튼 -->
+                <!-- 위치 새로고침 버튼 -->
                 <Button
                     android:id="@+id/btn_get_current_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📍 현재 위치 가져오기"
+                    android:text="🔄 위치 정보 새로고침"
                     android:layout_gravity="center_horizontal"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
@@ -241,7 +379,7 @@
                             android:id="@+id/tv_selected_date"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
-                            android:background="@drawable/date_time_selector_bg"
+                            android:background="#F5F5F5"
                             android:gravity="center_vertical"
                             android:paddingHorizontal="12dp"
                             android:text="2024-01-01"
@@ -276,7 +414,7 @@
                             android:id="@+id/tv_selected_time"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
-                            android:background="@drawable/date_time_selector_bg"
+                            android:background="#F5F5F5"
                             android:gravity="center_vertical"
                             android:paddingHorizontal="12dp"
                             android:text="00:00"
@@ -328,20 +466,38 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="12dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:orientation="horizontal"
                         android:layout_marginEnd="8dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_weather"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="날씨 상태"
-                            android:inputType="text" />
+                            android:layout_weight="1">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_weather"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="날씨 상태"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/btn_voice_weather"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:text="🎤"
+                            android:textSize="10sp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="8dp"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
@@ -384,18 +540,44 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:orientation="horizontal"
                         android:layout_marginStart="8dp">
 
-                        <Spinner
-                            android:id="@+id/spinner_method"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="어법"
+                                android:textSize="14sp"
+                                android:layout_marginBottom="4dp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_method"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btn_voice_method"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:text="🎤"
+                            android:textSize="10sp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="20dp"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -425,20 +607,38 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_notes"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:hint="특이사항, 참고사항 등을 입력하세요"
-                        android:gravity="top"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_notes"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:hint="특이사항, 참고사항 등을 입력하세요"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btn_voice_notes"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="🎤"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

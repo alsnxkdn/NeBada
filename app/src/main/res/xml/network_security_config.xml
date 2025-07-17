@@ -3,5 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">openapi.naver.com</domain>
         <domain includeSubdomains="true">newsapi.org</domain>
+        <domain includeSubdomains="true">apis.data.go.kr</domain>
+        <domain includeSubdomains="true">www.khoa.go.kr</domain>
     </domain-config>
 </network-security-config>
