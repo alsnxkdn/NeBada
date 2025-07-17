@@ -61,7 +61,7 @@
             android:parentActivityName=".MarketInfoActivity" />
         <!-- application 태그 내부에 추가할 Activity -->
         <activity
-            android:name=".WeatherForecastActivity"
+            android:name=".Activity.WeatherForecastActivity"
             android:exported="false"
             android:theme="@style/Theme.NeBada"
             android:parentActivityName=".IntroActivity"
