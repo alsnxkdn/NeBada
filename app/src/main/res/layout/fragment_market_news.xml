@@ -10,6 +10,95 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- 필터 섹션 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔍 필터 설정"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- 카테고리 필터 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="카테고리"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@android:drawable/btn_dropdown" />
+
+                    </LinearLayout>
+
+                    <!-- 지역 필터 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지역"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_region"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@android:drawable/btn_dropdown" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 필터 상태 표시 -->
+                <TextView
+                    android:id="@+id/tv_filter_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체 뉴스 표시 중"
+                    android:textSize="11sp"
+                    android:textColor="@color/primary_color"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- 뉴스 목록 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -41,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="시장 뉴스가 없습니다"
+                android:text="해당 조건의 뉴스가 없습니다"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp" />
@@ -49,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="새로고침하여 최신 뉴스를 확인해보세요"
+                android:text="다른 카테고리나 지역을 선택해보세요"
                 android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"
                 android:gravity="center" />

@@ -87,6 +87,16 @@
             android:maxLines="3"
             android:ellipsize="end" />
 
+        <TextView
+            android:id="@+id/tv_click_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📰 탭하여 원문 보기"
+            android:textSize="11sp"
+            android:textColor="@color/primary_color"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="4dp"
+            android:visibility="visible" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

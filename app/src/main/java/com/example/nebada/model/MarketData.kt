@@ -58,7 +58,9 @@ data class MarketNews(
     val content: String,
     val publishDate: Date,
     val category: NewsCategory,
-    val importance: NewsImportance
+    val importance: NewsImportance,
+    val url: String? = null, // 원본 기사 URL
+    val region: String = "전국" // 지역 정보 추가
 )
 
 enum class NewsCategory(val displayName: String) {

@@ -49,8 +49,16 @@ class MarketNewsAdapter(
                 // 발행일시
                 tvPublishDate.text = dateFormat.format(news.publishDate)
 
-                // 카테고리
+                // 카테고리와 지역 정보
                 tvCategory.text = news.category.displayName
+
+                // 지역 정보 추가 (카테고리 옆에 표시)
+                val categoryAndRegion = if (news.region != "전국") {
+                    "${news.category.displayName} • ${news.region}"
+                } else {
+                    news.category.displayName
+                }
+                tvCategory.text = categoryAndRegion
 
                 // 중요도에 따른 색상
                 val importanceColor = Color.parseColor(news.importance.color)
@@ -67,8 +75,26 @@ class MarketNewsAdapter(
                 }
                 root.setCardBackgroundColor(categoryColor)
 
-                // 클릭 이벤트
+                // 클릭 이벤트 - 뉴스 객체를 전달
                 root.setOnClickListener { onItemClick(news) }
+
+                // URL이 있을 때만 클릭 가능하도록 시각적 피드백
+                if (news.url.isNullOrBlank()) {
+                    root.alpha = 0.7f
+                    root.isClickable = false
+                    root.foreground = null
+                } else {
+                    root.alpha = 1.0f
+                    root.isClickable = true
+                    root.foreground = android.graphics.drawable.ColorDrawable(
+                        android.graphics.Color.parseColor("#1000FF00")
+                    )
+
+                    // 클릭 가능함을 나타내는 추가 표시
+                    tvNewsTitle.setCompoundDrawablesWithIntrinsicBounds(
+                        0, 0, android.R.drawable.ic_menu_view, 0
+                    )
+                }
             }
         }
     }

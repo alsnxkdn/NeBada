@@ -19,3 +19,28 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Retrofit and OkHttp
+-dontwarn retrofit2.**
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# 네이버 뉴스 API 모델 클래스 유지
+-keep class com.example.nebada.model.NaverNews** { *; }
+-keep class com.example.nebada.api.NaverNewsService { *; }
+
+# 기존 모델 클래스들도 유지
+-keep class com.example.nebada.model.** { *; }
+-keep class com.example.nebada.manager.** { *; }
