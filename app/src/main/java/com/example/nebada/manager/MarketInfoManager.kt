@@ -2,7 +2,7 @@ package com.example.nebada.manager
 
 import android.content.Context
 import android.text.Html
-import com.example.nebada.api.NaverNewsService
+import e
 import com.example.nebada.model.*
 import kotlinx.coroutines.*
 import retrofit2.Retrofit

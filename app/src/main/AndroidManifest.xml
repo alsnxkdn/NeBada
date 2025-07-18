@@ -27,14 +27,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyApbEBCvdGrUje4jUESZTrr3wXns7j021c" />
-
-        <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="YOUR_CLIENT_ID_HERE" />
-
         <activity
             android:name=".IntroActivity"
             android:exported="true"
@@ -68,20 +60,14 @@
             android:exported="false"
             android:theme="@style/Theme.NeBada"
             android:parentActivityName=".MarketInfoActivity" />
-        <!-- application 태그 내부에 추가할 Activity -->
-        <activity
-            android:name=".Activity.WeatherForecastActivity"
-            android:exported="false"
-            android:theme="@style/Theme.NeBada"
-            android:parentActivityName=".IntroActivity"
-            android:label="날씨 예보" />
+
+        <!-- 날씨 관련 Activity -->
         <activity
             android:name=".WeatherRadarActivity"
             android:exported="false"
             android:theme="@style/Theme.NeBada"
             android:parentActivityName=".IntroActivity"
             android:label="날씨 레이더" />
-        <!-- 네트워크 보안 설정에 기상청 API 도메인 추가 -->
 
     </application>
 </manifest>

@@ -17,10 +17,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
-        maven { url 'https://naver.jfrog.io/artifactory/maven/' }
+        maven { url = uri("https://repository.map.naver.com/archive/maven") }
     }
 }
 
 rootProject.name = "NeBada"
 include(":app")
- 
