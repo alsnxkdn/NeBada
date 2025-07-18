@@ -76,9 +76,16 @@ dependencies {
 
     // WebView 지원
     implementation("androidx.webkit:webkit:1.8.0")
+
     // 권한 요청 라이브러리
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+
+    // MapLibre GL Native for OSM
+    implementation("org.maplibre.gl:android-sdk:11.13.0-pre0")
+
+    // Naver Maps SDK
+    implementation("com.naver.maps:map-sdk:3.18.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

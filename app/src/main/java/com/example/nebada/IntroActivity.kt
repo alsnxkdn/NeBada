@@ -97,6 +97,12 @@ class IntroActivity : AppCompatActivity() {
             intent.putExtra("direct_to_record", true)
             startActivity(intent)
         }
+
+        // 날씨 레이더 메뉴
+        binding.cardWeatherRadar.setOnClickListener {
+            val intent = Intent(this, WeatherRadarActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun navigateToMainActivity(section: String) {
